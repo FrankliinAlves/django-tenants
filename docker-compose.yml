@@ -1,0 +1,18 @@
+name: tenants
+
+services:
+  db:
+    image: postgres:15
+    container_name: django_tenants_db
+    restart: always
+    volumes:
+      - tenants_postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5434:5432"
+
+volumes:
+  tenants_postgres_data:

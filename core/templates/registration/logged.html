@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel | CRM Multi-Tenant</title>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #cad1f3;
+            margin: 0;
+        }
+
+        .welcome-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1 { color: #333; }
+
+        .logout-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 10px 20px;
+            background: #dc3545;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover { background: #c52636; }
+    </style>
+
+</head>
+<body>
+    <div class="welcome-card">
+        <h1>Seja bem-vindo, {{ user.username }}!</h1>
+        <p>Você foi logado com sucesso no sistema multi-tenant.</p>
+        
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="logout-btn">Sair do Sistema</button>
+        </form>
+    </div>
+</body>
+</html>
