@@ -79,7 +79,7 @@ source venv/bin/activate
 4. Instale dependências
 ```bash
 # Atualizar pip
-pip install --upgrade pip
+python.exe -m pip install --upgrade pip
 
 # Instalar dependências
 pip install -r requirements.txt
